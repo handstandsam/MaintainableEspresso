@@ -36,9 +36,4 @@ class InMemoryShoppingCartDao : ShoppingCartDao {
     override val allItems: Flow<List<ItemWithQuantity>>
         get() = channel.asFlow()
 
-    private fun MutableMap<String, ItemWithQuantity>.asSortedList(): List<ItemWithQuantity> {
-        return values.toList()
-            .sortedBy { it.item.label }
-    }
-
 }
